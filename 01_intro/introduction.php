@@ -12,6 +12,9 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
+    <?php 
+        require '../inc/nav.inc.php';
+    ?>
     <div class="jumbotron">
         <h1 class="display-4">Cours PHP 7 - Introduction</h1>
         <p class="lead">PHP signifie aujourd'hui PHP Hypertext Preprcessor.</p>
@@ -24,7 +27,7 @@
      <!--                CONTENU PRINCIPAL              -->
      <!-- **********************************************-->
 
-    <main class="container">
+    <main class="container bg-white">
         <div class="row">
             <div class="col-sm-12 col-md-4">
                 <p>Pour parvenir à la réalisation de sites dynamique nous allon aborder successivement les points suivant :</p>
@@ -54,7 +57,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
                 <?php
-                    echo "<h3> Aujourd'hui nous somme le ". date('d/m/Y')."<h3>";
+                    echo "<h3> Aujourd'hui nous somme le ". date('d/m/Y')."<h3>"; //la date du serveur
                     echo "<h4>Bienvenu sur le cours PHP 7<h4>";
                 ?>
                 
@@ -69,6 +72,11 @@
         </div> <!-- fin row -->
         <div class="row">
             <div class="col-sm-12">
+                <a class="btn btn-outline-secondary btn-sm mb-12" href="../coursPHP\00_pages\01_page.php" target="_blank" role"button">Une page en PHP</a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
                 <h2>Inclure des fichier externes</h2>
                 <table class="table table-striped">
                     <thead>
@@ -79,8 +87,18 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td>include('nom_fichier.php')</td>
                             <td></td>
+                        </tr>
+                        <tr>
+                            <td>require('nom_fichier.php')</td>
                             <td></td>
+                        </tr>
+                        <tr>
+                            <td>include_once('nom_fichier.php') <br>
+                                require_once('nom_fichier.php')
+                            </td>
+                            <td>Lors de son interprétation par le serveur, cette ligne est remplacée par tout le contenu du fichier précisé en paramètre, dont vous fournissez le nom et éventuellement l'adresse complète. En cas d'erreur, par exemple si le fichier n'est pas trouvé, include() ne génère qu'une alerte (un warning), et le script continue.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -88,7 +106,9 @@
         </div>
     </main>
 
-
+    <?php 
+        require '../inc/footer.inc.php';
+    ?>
 
 
 

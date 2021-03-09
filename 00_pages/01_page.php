@@ -25,6 +25,13 @@
     ?>
     <hr>
     <?="<blockquote>$variable2, $variable2, on entend le $variable2</bockquote>";?>
-
+    <p>$GLOBALS</p>
+    <?php print_r ($GLOBALS);?>
+    <hr>
+    <?php print_r ($_COOKIE);?>
+    <hr>
+    <?php print_r ($_ENV);?>
+    <hr>
+    <?php print_r ($_SERVER['SERVER_SOFTWARE']);?>
 </body>
 </html>
