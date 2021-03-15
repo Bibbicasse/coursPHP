@@ -11,10 +11,10 @@
           00_pages
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="http://localhost/coursPHP/00_pages\01_page.php">01 Page</a>
-          <a class="dropdown-item" href="http://localhost/coursPHP/00_pages\02_page.php">02 Page</a>
-          <a class="dropdown-item" href="http://localhost/coursPHP/00_pages\03_page.php">03 Page</a>
-          <a class="dropdown-item" href="http://localhost/coursPHP/00_pages\04_constantes_predefinies.php">04 Constantes</a>
+          <a class="dropdown-item" href="../00_pages\01_page.php">01 Page</a>
+          <a class="dropdown-item" href="../00_pages\02_page.php">02 Page</a>
+          <a class="dropdown-item" href="../00_pages\03_page.php">03 Page</a>
+          <a class="dropdown-item" href="../00_pages\04_constantes_predefinies.php">04 Constantes</a>
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
@@ -24,11 +24,8 @@
           01_intro
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="http://localhost/coursPHP/01_intro/infos.php">Infos</a>
-            <a class="dropdown-item" href="http://localhost/coursPHP/01_intro/introduction.php">Introduction</a>
-            <a class="dropdown-item" href="http://localhost/coursPHP/01_intro/chaines.php">Chaînes</a>
-            <a class="dropdown-item" href="http://localhost/coursPHP/01_intro/tableaux.php">Tableaux</a>
-            <a class="dropdown-item" href="http://localhost/coursPHP/01_intro/types.php">types</a>
+            <a class="dropdown-item" href="../01_intro/infos.php">Infos</a>
+            <a class="dropdown-item" href="../01_intro/introduction.php">Introduction</a>
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>
@@ -38,7 +35,23 @@
           02_Variables
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="http://localhost/coursPHP/02_variables\variables.php">Infos</a>
+            <a class="dropdown-item" href="../02_variables/variables.php">Infos</a>
+            <a class="dropdown-item" href="../02_variables/chaines.php">Chaînes</a>
+            <a class="dropdown-item" href="../02_variables/tableaux.php">Tableaux</a>
+            <a class="dropdown-item" href="../02_variables/types.php">Types</a>
+          <!-- <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a> -->
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          03_Conditions
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="../03_conditions/03_conditions.php">Condition</a>
+            <!-- <a class="dropdown-item" href="#">#</a>
+            <a class="dropdown-item" href="#">#</a>
+            <a class="dropdown-item" href="#">#</a> -->
           <!-- <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a> -->
         </div>

@@ -12,9 +12,10 @@
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
-    <?php 
+  <?php 
         require '../inc/nav.inc.php';
     ?>
+
     <div class="jumbotron">
         <h1 class="display-4">Cours PHP 7 - Introduction</h1>
         <p class="lead">PHP signifie aujourd'hui PHP Hypertext Preprcessor.</p>
@@ -22,6 +23,7 @@
         <!-- <p>It uses utility classes for typography and spacing to space content out within the larger container.</p> -->
         <a class="btn btn-primary btn-lg" href="#" role="button">Voir d'avantage</a>
     </div>
+    
 
      <!-- **********************************************-->
      <!--                CONTENU PRINCIPAL              -->
