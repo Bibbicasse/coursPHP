@@ -1,0 +1,15 @@
+<?php 
+    // jevardump($_GET);
+    //isset est-ce que l'on a bien touts les indices du tableau ?
+
+    if ( isset($_GET['article']) 
+        && isset($_GET['couleur']) 
+        && isset($_GET['prix'])
+    ) {
+        echo $_GET['article']; //oui on les a, donc affiche le produit
+    } else {
+        echo "<p class=\"alert alert-danger mx-auto w-50\"><em>Désolé il n'y à pas de produit sur cette page</em></p>";//sinon affiche ce message
+    }
+
+    // echo $_GET['article']." - ".$_GET['couleur']." - ".$_GET['prix'] . " €";
+?> 
