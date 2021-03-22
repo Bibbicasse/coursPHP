@@ -1,5 +1,9 @@
 <?php 
 require_once '../inc/functions.php';
+
+//vérification de la récupération de $_GET avec 
+// jevardump($_GET);
+
 ?>  
 
 <!doctype html>
@@ -12,7 +16,7 @@ require_once '../inc/functions.php';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>Cours PHP -  Method GET</title>
+    <title>Cours PHP -  </title>
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
@@ -20,11 +24,11 @@ require_once '../inc/functions.php';
   <?php 
         require '../inc/nav.inc.php';
     ?>
-  
-
     <div class="jumbotron">
-        <h1 class="display-4">Cours PHP 7 - Method GET</h1>
-        <p class="lead"><code>$_GET[]</code> représente les données qui transitent par l'URL</p>
+        <h1 class="display-4">Cours PHP 7 - </h1>
+        <p class="lead">TEXT</p>
+
+       
     </div>
 
      <!-- **********************************************-->
@@ -33,47 +37,17 @@ require_once '../inc/functions.php';
 
     <main class="container bg-white m-4 mx-auto">
     <div class="row">
+      <h2 class="col-sm-12 text-center">H2</h2>
 
-    <div class="col-sm-12">
-        <?php 
-            if ( isset($_GET['article']) 
-            && isset($_GET['couleur']) 
-            && isset($_GET['prix'])
-        ) { 
-    ?>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">
-                <?php 
-                    echo $_GET['article']; 
-                ?>  
-
-                </h5>
-                <p class="card-text">
-                    <?php 
-                    echo $_GET['couleur']."<br> ". $_GET['prix']. "€";  
-                    ?> 
-                </p>
-                <a href="#" class="btn btn-primary">Mettre au panier</a>
-                
-            </div>
-        </div><!-- fin de card -->
-        <?php     
-        } else {
-            echo "<p class=\"alert alert-danger w-100 text-center mx-auto my-2\">Désolé il n'y à pas de produit sur cette page !</p>";
-        } ?> 
-    </div><!-- fin col -->
-
-
-    </div> <!-- fin row -->
+      <div class="col-md-5">
+      
+      </div><!-- fin col -->
+    </div><!-- fin row -->
     </main>
 
     <?php 
         require '../inc/footer.inc.php';
     ?>
-
-
 
     <!-- Optional JavaScript; choose one of the two! -->
 
@@ -89,4 +63,3 @@ require_once '../inc/functions.php';
     -->
   </body>
 </html>
-

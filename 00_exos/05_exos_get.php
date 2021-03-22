@@ -1,5 +1,9 @@
 <?php 
 require_once '../inc/functions.php';
+
+//vérification de la récupération de $_GET avec 
+// jevardump($_GET);
+
 ?>  
 
 <!doctype html>
@@ -12,7 +16,7 @@ require_once '../inc/functions.php';
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
-    <title>Cours PHP -  Method GET</title>
+    <title>Cours PHP -  Votre compte - mise à jour ou suppression</title>
     <link rel="stylesheet" href="../css/style.css">
   </head>
   <body>
@@ -20,11 +24,11 @@ require_once '../inc/functions.php';
   <?php 
         require '../inc/nav.inc.php';
     ?>
-  
-
     <div class="jumbotron">
-        <h1 class="display-4">Cours PHP 7 - Method GET</h1>
-        <p class="lead"><code>$_GET[]</code> représente les données qui transitent par l'URL</p>
+        <h1 class="display-4">Cours PHP 7 - Exos GET</h1>
+        <p class="lead">Votre compte - mise à jour ou suppression</p>
+
+       
     </div>
 
      <!-- **********************************************-->
@@ -32,41 +36,48 @@ require_once '../inc/functions.php';
      <!-- **********************************************-->
 
     <main class="container bg-white m-4 mx-auto">
+
+                        <!--     MINI exo -->
+    <!--     1/ affichez dans cette page un titre "Mon compte : un nom et un prénom"-->
+    <!--     2/ vous y ajouter un lien "modifier mon compte" : Ce lien renvoie dans l'url à la même page, donc à cette page, l'action demandé est "modification", quand on clique sur le lien -->
+    <!--     3/ Si vous avez reçu cette action "modification" par l'url, alors vous affichez "Vous avez demandé la modification de votre compte" -->
+
     <div class="row">
+      <h2 class="col-sm-12 text-center">Mon compte : Dark Vador</h2>
 
-    <div class="col-sm-12">
-        <?php 
-            if ( isset($_GET['article']) 
-            && isset($_GET['couleur']) 
-            && isset($_GET['prix'])
-        ) { 
-    ?>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">
-                <?php 
-                    echo $_GET['article']; 
-                ?>  
+      <div class="col-md-6 text-center">           
+        <a href="05_exos_get.php?action=modification">Modifier mon compte</a> 
+        
+        <br>
 
-                </h5>
-                <p class="card-text">
-                    <?php 
-                    echo $_GET['couleur']."<br> ". $_GET['prix']. "€";  
-                    ?> 
-                </p>
-                <a href="#" class="btn btn-primary">Mettre au panier</a>
-                
-            </div>
-        </div><!-- fin de card -->
-        <?php     
-        } else {
-            echo "<p class=\"alert alert-danger w-100 text-center mx-auto my-2\">Désolé il n'y à pas de produit sur cette page !</p>";
-        } ?> 
-    </div><!-- fin col -->
+      <?php 
+        if (isset($_GET['action']) && $_GET['action'] == 'modification') {
+        echo "<p class=\"alert alert-warning text-center\">Vous modifié votre compte </p>" ;
+      } 
+        ?> 
+      </div>
+
+      <div class="col-md-6 text-center">
+        <a href="05_exos_get.php?action=suppression">Supprimer mon compte</a> 
+        
+        <br>
+        
+      <?php 
+          if (isset($_GET['action']) && $_GET['action'] == 'suppression') {
+          echo "<p class=\"alert alert-danger text-center\">Vous modifié votre compte </p>" ;
+        } 
+      ?> 
+      </div>
+
+      <div class="col-md-5">
+      
+      </div>
+
+    </div>
+
+    
 
 
-    </div> <!-- fin row -->
     </main>
 
     <?php 
@@ -89,4 +100,3 @@ require_once '../inc/functions.php';
     -->
   </body>
 </html>
-
