@@ -1,9 +1,6 @@
 <?php 
 require_once '../inc/functions.php';
 
-//vérification de la récupération de $_GET avec 
-// jevardump($_GET);
-
 ?>  
 
 <!doctype html>
@@ -19,16 +16,13 @@ require_once '../inc/functions.php';
     <title>Cours PHP -  </title>
     <link rel="stylesheet" href="../css/style.css">
   </head>
-  <body>
 
-  <?php 
-        require '../inc/nav.inc.php';
-    ?>
+  <body>
+  <?php require '../inc/nav.inc.php'; ?>
+
     <div class="jumbotron">
         <h1 class="display-4">Cours PHP 7 - </h1>
         <p class="lead">TEXT</p>
-
-       
     </div>
 
      <!-- **********************************************-->
@@ -38,9 +32,8 @@ require_once '../inc/functions.php';
     <main class="container bg-white m-4 mx-auto">
     <div class="row">
       <h2 class="col-sm-12 text-center">H2</h2>
-
-      <div class="col-md-5">
-      
+      <div class="col-md-6">
+    
       </div><!-- fin col -->
     </div><!-- fin row -->
     </main>
@@ -63,3 +56,29 @@ require_once '../inc/functions.php';
     -->
   </body>
 </html>
+
+<table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>prenom</th>
+                            <th>nom</th>
+                            <th>sexe</th>
+                            <th>service</th>
+                            <th>salaire</th>
+                        </tr>
+                    </thead>
+            <?php 
+            while ($employes = $resultat->fetch(PDO::FETCH_ASSOC)) { ?> 
+                <tr>
+                    <td><?php echo $employes['id_employes']; ?></td>
+                    <td><?php echo $employes['prenom']; ?></td>
+                    <td><?php echo $employes['nom']; ?></td>
+                    <td><?php echo $employes['sexe']; ?></td>
+                    <td><?php echo $employes['service']; ?></td>
+                    <td><?php echo $employes['date_enregistrement']; ?></td>
+                    <td><?php echo $employes['salaire']; ?></td>
+                </tr>
+            <?php   } ?>
+              
+            </table>

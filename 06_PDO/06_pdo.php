@@ -279,8 +279,22 @@ require_once '../inc/functions.php';
                     echo "<p>Nom : " .$ligne['prenom']. " " .$ligne['nom']." travaille au service : " .$ligne['service']."</p>";
                 };
 
+                echo "<hr>";
+				//requete préparée sans bindParam
+				$resultat = $pdoENT->prepare("SELECT * FROM employes WHERE prenom= :prenom AND nom = :nom");//Preéparation de la requête
+				$resultat->execute(array(//on fabrique un tableau
+					':nom' =>'Thoyer',
+					':prenom' =>'Amandine',//on peut se passer de bindParam
+				));
+				// jevardump($resultat);
+
+				$employe = $resultat->fetch(PDO::FETCH_ASSOC);//on va chercher les infos
+
+				// jevardump($employe);
+
+				echo $employe['prenom']. " " .$employe['nom']. " est au service " .$employe['service']. "."
             ?> 
-            <!-- REPREMDRE MARDI REQUETE SANS bindparam -->
+
         </div>
     </div> <!-- fin row -->
 
