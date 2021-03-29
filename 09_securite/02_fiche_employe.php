@@ -32,6 +32,8 @@ if (isset($_GET['id_employes'] ) ) {
     exit();
 }
 
+//traitement de mise à jour du formulaire
+
 if (!empty($_POST)) {
     //pour se prémunir des failles nous faisons ceci
     $_POST['prenom'] = htmlspecialchars($_POST['prenom']); 
@@ -42,6 +44,7 @@ if (!empty($_POST)) {
     $_POST['salaire'] = htmlspecialchars($_POST['salaire']);
 
     $resultat = $pdoENT->prepare("UPDATE employes SET prenom = :prenom, nom = :nom, sexe = :sexe, service = :service, date_embauche = :date_embauche, salaire = :salaire WHERE id_employes = :id_employes");
+
     $resultat->execute( array(
         ':prenom' => $_POST['prenom'], 
         ':nom' => $_POST['nom'],
@@ -95,7 +98,7 @@ if (!empty($_POST)) {
                             <!-- < ?php $nbr_format = number_format($number, 2, ',',' '?> -->
                             <h5 class="card-title alert alert-success text-center"> <?php echo $fiche['prenom']. " " .$fiche['nom'];?></h5>
 
-                            <p class="card-text "><?php echo "<strong> Service : </strong>" . $fiche['service']. "<br> <strong>Salaire : </strong>" .number_format($fiche['salaire']). "€". "<br><strong> Rentré le : </strong>" .$fiche['date_embauche'];  ?></p>
+                            <p class="card-text "><?php echo "<strong> Service : </strong>" . $fiche['service']. "<br> <strong>Salaire : </strong>" .number_format($fiche['salaire']). "€". "<br><strong> Rentré le : </strong>" .date('d/m/Y', strtotime($fiche['date_embauche']));  ?></p>
                             <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
                         </div>
                     </div>
@@ -114,18 +117,23 @@ if (!empty($_POST)) {
         </div>
         <div class="mb-3 form-group">
             <!-- <label for="nom" class="form-label">Nom</label> -->
+            <!-- if (isset($fiche['nom']) {echo "...";} else {echo '';}) s'il n'y a rien je mets une chaîne vide : opérateur de coalescence-->
+            <!-- cette opérateur avec $_POST['nom'] et if isset else "résumé" avec l'opérateur de coalescence sera utile si on tulise un seul formulaire pour INSERT et UPDATE -->
             <input type="text" name="nom" id="nom" class="form-control form-group border border-success" placeholder="Votre nom" value="<?php echo $fiche['nom']?? '' ; ?>" >
         </div>
         <div class="mb-3 form-group ">
             <!-- <label for="sexe" class="form-label">Sexe</label> <br> -->
 
-                            <!-- VERSION DEROULANT -->
-            <select class="form-select border border-success btn btn-outline-white" aria-label="Default select example" name="sexe" >
-                <option value="f"<?php if (!(strcmp("f", $fiche['sexe']))) {echo "selected=\"selected\"";}?>>Femme</option>
-                <option value="m"<?php if (!(strcmp("m", $fiche['sexe']))) {echo "selected=\"selected\"";}?>>Homme</option>
+                            <!-- VERSION SELECT -->
+            <select class="form-select border border-success btn btn-outline-white" aria-label="Default select example" name="sexe" > 
+                <option value="f"<?php if (!(strcmp("f", $fiche['sexe']))) {echo " selected";}?>>Femme</option>
+                <option value="m"<?php if (!(strcmp("m", $fiche['sexe']))) {echo " selected";}?>>Homme</option>
+                
             </select>
 
                             <!-- VERSION RADIO -->
+            <!-- pour les bouton radio par défaut sera le  1er sera "checked" et le second le sera si on à l'info du sexe et si cette info est égale à "f"  -->
+
             <!-- <div class="form-group">
                 <label for="sexe">Sexe</label>
                 <input type="radio" name="sexe" value="m" checked> Homme
@@ -135,14 +143,14 @@ if (!empty($_POST)) {
         <div class="mb-3 form-group">
             <!-- <label for="service" class="form-label">Services</label> <br> -->
             <select class="form-select border border-success btn btn-outline-white" aria-label="Default select example" name="service" >
-                <option value="assistant" <?php if (!(strcmp("assistant", $fiche['service']))) {echo "selected=\"selected\"";}?>>Assistant</option>
-                <option value="commercial"<?php if (!(strcmp("commercial", $fiche['service']))) {echo "selected=\"selected\"";}?>>Commercial</option>
-                <option value="communication" <?php if (!(strcmp("communication", $fiche['service']))) {echo "selected=\"selected\"";}?>>Communication</option>
-                <option value="direction" <?php if (!(strcmp("direction", $fiche['service']))) {echo "selected=\"selected\"";}?>>Direction</option>
-                <option value="informatique" <?php if (!(strcmp("informatique", $fiche['service']))) {echo "selected=\"selected\"";}?>>Informatique</option>
-                <option value="juridique" <?php if (!(strcmp("juridique", $fiche['service']))) {echo "selected=\"selected\"";}?>>Juridique</option>
-                <option value="production" <?php if (!(strcmp("production", $fiche['service']))) {echo "selected=\"selected\"";}?>>Production</option>
-                <option value="secretariat" <?php if (!(strcmp("secretariat", $fiche['service']))) {echo "selected=\"selected\"";}?>>Secretariat</option>
+                <option value="assistant" <?php if (!(strcmp("assistant", $fiche['service']))) {echo " selected";}?>>Assistant</option>
+                <option value="commercial"<?php if (!(strcmp("commercial", $fiche['service']))) {echo " selected";}?>>Commercial</option>
+                <option value="communication" <?php if (!(strcmp("communication", $fiche['service']))) {echo " selected";}?>>Communication</option>
+                <option value="direction" <?php if (!(strcmp("direction", $fiche['service']))) {echo " selected";}?>>Direction</option>
+                <option value="informatique" <?php if (!(strcmp("informatique", $fiche['service']))) {echo " selected";}?>>Informatique</option>
+                <option value="juridique" <?php if (!(strcmp("juridique", $fiche['service']))) {echo " selected";}?>>Juridique</option>
+                <option value="production" <?php if (!(strcmp("production", $fiche['service']))) {echo " selected";}?>>Production</option>
+                <option value="secretariat" <?php if (!(strcmp("secretariat", $fiche['service']))) {echo " selected";}?>>Secretariat</option>
             </select>
         </div>
         <div class="mb-3 form-group">
@@ -155,6 +163,7 @@ if (!empty($_POST)) {
         </div>
             <input type="submit" href="#" class="submit btn btn-outline-success d-sm-block my-2 col-sm-6 mx-auto" value="Modifier" >
     </form>
+    
 </div>
 <!-- fin col -->
 

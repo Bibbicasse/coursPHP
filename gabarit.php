@@ -56,29 +56,3 @@ require_once '../inc/functions.php';
     -->
   </body>
 </html>
-
-<table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>prenom</th>
-                            <th>nom</th>
-                            <th>sexe</th>
-                            <th>service</th>
-                            <th>salaire</th>
-                        </tr>
-                    </thead>
-            <?php 
-            while ($employes = $resultat->fetch(PDO::FETCH_ASSOC)) { ?> 
-                <tr>
-                    <td><?php echo $employes['id_employes']; ?></td>
-                    <td><?php echo $employes['prenom']; ?></td>
-                    <td><?php echo $employes['nom']; ?></td>
-                    <td><?php echo $employes['sexe']; ?></td>
-                    <td><?php echo $employes['service']; ?></td>
-                    <td><?php echo $employes['date_enregistrement']; ?></td>
-                    <td><?php echo $employes['salaire']; ?></td>
-                </tr>
-            <?php   } ?>
-              
-            </table>
