@@ -9,16 +9,16 @@ function jeprint_r($maVariable) {
 }
 
     /* ***********************************************/
-    /*    2 - FONCTION POUR EXÉCUTER LES prepare()   */
+    /*    2 - FONCTION POUR EXÉCUTER Les prepare()   */
     /* ***********************************************/
 
     function executeRequete($requete, $parametres = array ()) { //utile pour toutes les requêtes du site
         foreach ($parametres as $indice => $valeur) {//foreach
                    
             $parametres[$indice] = htmlspecialchars($valeur); //on evite les injections SQL
-            global $pdoSITE; //"global" nous permet d'accéder à la variable $pdoSITE dans l'espace global du fichier init.php
+            global $pdoWebforce; //"global" nous permet d'accéder à la variable $pdoSITE dans l'espace global du fichier init.php
 
-            $resultat = $pdoSITE->prepare($requete); //puis on prépare la requête
+            $resultat = $pdoWebforce->prepare($requete); //puis on prépare la requête
 
             $succes = $resultat->execute($parametres); //puis on l'exécute
 
@@ -29,14 +29,5 @@ function jeprint_r($maVariable) {
             }// fin if else 
         }
     }// fermeture fonction executeRequete
-
-
-    /* ***********************************************/
-    /*     3 - VERIFIER SI LE MEMBRE EST CONNECTÉ    */
-    /* ***********************************************/
-
-    /* ***********************************************/
-    /*        4 - VERIFIER LE STATUT DU membre       */
-    /* ***********************************************/
 
 ?> 

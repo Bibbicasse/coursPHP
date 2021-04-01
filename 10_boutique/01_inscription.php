@@ -99,54 +99,56 @@ if(!empty($_POST)) { //si forme n'est pas vide
 	echo $contenu;
 	?> 
         <div class="row">
-            <div class="col-12 col-md-6 col-lg-8 mx-auto border border-success">
+            <div class="col-sm-10 mx-auto border border-primary border-5 rounded-3 bg-light">
                 <h1 class="text-center">La Boutique - Inscrivez-vous
 				</h1>
 
-			<form method="POST" action="" class="p-4  mx-auto">
-				<div class="form-group mt-2">
+			<form method="POST" action="" class="p-4 mx-auto row">
+				<div class="form-group mt-2 col-sm-6">
 					<label for="pseudo">Choisissez un pseudo *</label>
-					<input type="text" name="pseudo" id="pseudo" value="<?php echo $_POST['pseudo'] ?? ''; ?>" class="form-control border border-success"> 
+					<input type="text" name="pseudo" id="pseudo" value="<?php echo $_POST['pseudo'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3"> 
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 col-sm-6">
 					<label for="mdp">Mot de passe *</label>
-					<input type="password" name="mdp" id="mdp" value="" class="form-control border border-success">
+					<input type="password" name="mdp" id="mdp" value="" class="form-control border border-primary border-2 rounded-3" >
 					<small class=""><em> Votre mot de passe doit contenir entre 4 et 20 caractères </em></small>
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 col-sm-6">
 					<label for="nom">Nom *</label>
-					<input type="text" name="nom" id="nom" value="<?php echo $_POST['nom'] ?? ''; ?>" class="form-control border border-success">
+					<input type="text" name="nom" id="nom" value="<?php echo $_POST['nom'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3">
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 col-sm-6">
 					<label for="prenom">Prénom *</label>
-					<input type="text" name="prenom" id="prenom" value="<?php echo $_POST['prenom'] ?? ''; ?>" class="form-control border border-success"> 
+					<input type="text" name="prenom" id="prenom" value="<?php echo $_POST['prenom'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3"> 
 				</div>
 				<div class="form-group mt-2">
 					<label for="email">Email *</label>
-					<input type="email" name="email" id="email" value="<?php echo $_POST['email'] ?? ''; ?>" class="form-control border border-success">
+					<input type="email" name="email" id="email" value="<?php echo $_POST['email'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3" placeholder="ton_email_ici@mail.fr">
 					<small class=""><em>Dois comporter une adresse conforme (exemple@email.fr) </em></small>
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 ">
 					<label for="civilite">Civilité *</label>
 					<br>
 					<input type="radio" name="civilite" value="m" checked> Homme
 					<input type="radio" name="civilite" value="f"<?php if (isset($_POST['civilite']) && $_POST['civilite'] =='f') echo 'checked';?>> Femme            
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 col-sm-6 col-md-5">
 					<label for="adresse">Adresse</label>
-					<textarea name="adresse" id="adresse" class="form-control border border-success"><?php echo $_POST['adresse'] ?? ''; ?></textarea>
+					<textarea name="adresse" id="adresse" class="form-control border border-primary border-2 rounded-3"><?php echo $_POST['adresse'] ?? ''; ?></textarea>
 				</div>
-				<div class="form-group mt-2">
+				<div class="form-group mt-2 col-sm-6 col-md-3">
 					<label for="code_postal">Code postal</label>
-					<input type="text" name="code_postal" id="code_postal" value="<?php echo $_POST['code_postal'] ?? ''; ?>" class="form-control border border-success">
-					<small class=""><em>Format français (ex: 75016)</em></small>
+					<input type="text" name="code_postal" id="code_postal" value="<?php echo $_POST['code_postal'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3" placeholder="(ex: 75016)">
 				</div>
-				<div class="form-group mt-2">        
+				<div class="form-group mt-2 col-md-4">        
 					<label for="ville">Ville</label>
-					<input type="text" name="ville" id="ville" value="<?php echo $_POST['ville'] ?? ''; ?>" class="form-control border border-success"> 
+					<input type="text" name="ville" id="ville" value="<?php echo $_POST['ville'] ?? ''; ?>" class="form-control border border-primary border-2 rounded-3"> 
 				</div>
-				<div class="form-group mt-2">
-					<input type="submit" value="Inscrivez-vous" class="btn btn-sm btn-success">
+				<div class="form-group mt-2 text-center">
+					<input type="submit" value="M'inscrire" class="btn btn-sm btn-primary border-2 rounded-3">
+					<a href="02_connexion.php" class="btn btn-sm btn-success">Me connecter</a>
+					<input type="reset" value="Effacer" class="btn btn-sm btn-danger">
+
 				</div>
     		</form>
 		</div>
