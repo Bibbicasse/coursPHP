@@ -7,9 +7,9 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-        <a class="dropdown-item" href="../accueil.php">Accueil</a>
-        <a class="dropdown-item" href="../formulaire.php">Ajouter une annonce</a>
-        <a class="dropdown-item" href="../annonce.php">Consulter toutes les annnonces</a>
+        <a class="dropdown-item" href="accueil.php">Accueil</a>
+        <a class="dropdown-item" href="formulaire.php">Ajouter une annonce</a>
+        <a class="dropdown-item" href="annonce.php">Consulter toutes les annnonces</a>
         </li>
       </ul>
     </div>

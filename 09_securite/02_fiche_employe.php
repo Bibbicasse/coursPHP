@@ -105,6 +105,7 @@ if (!empty($_POST)) {
                 </div>
             </div>
         </div><!-- fin col -->
+    </div>
                                 <!-- FORMULAIRE -->
                                 
 <!-- if (isset($_POST['pseudo']) { echo "..."; } else { echo '';} si il n'y a rien je mets une chaîne vide opérateur de coalescence-->
