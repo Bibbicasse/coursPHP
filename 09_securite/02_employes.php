@@ -67,7 +67,7 @@
     <div class="row">
     <div class="col-sm-12">
         <?php 
-        echo "<table class=\"table table-sm table-success table-striped\">";
+        echo "<table class=\"table table-sm table-success table-striped\" id=\"updateForm\">";
             echo "<thead>";
                 echo "<tr>";
                 echo "<th>Nom, prénom</th>";
