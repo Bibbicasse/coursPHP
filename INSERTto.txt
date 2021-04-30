@@ -1,0 +1,61 @@
+
+CREATE TABLE IF NOT EXISTS console (id_console INT(3) NOT NULL AUTO_INCREMENT, 
+                        plateforme VARCHAR(20) NOT NULL,
+			modele VARCHAR(20) NOT NULL,
+                        PRIMARY KEY (id_console))
+                        ENGINE=innoDB;
+
+CREATE TABLE IF NOT EXISTS jeux (id_jeux INT(3) NOT NULL AUTO_INCREMENT, 
+                        plateforme VARCHAR(20) NOT NULL,
+			modele VARCHAR(20) NOT NULL,
+                        PRIMARY KEY (id_console))
+                        ENGINE=innoDB;
+
+INSERT INTO console (id_console, plateforme, modele) VALUES
+                (NULL, 'Playstation', 'Ps4'),
+                (NULL, 'Playstation', 'Ps3 '),
+                (NULL, 'Playstation', 'Ps2'),
+                (NULL, 'Playstation', 'Ps1'),
+                (NULL, 'Playstation', 'PsVita'),
+                (NULL, 'Microsoft', 'Xbox 1'),
+                (NULL, 'Nintendo', 'Switch'),
+                (NULL, 'Nintendo', 'New 3DS');
+
+INSERT INTO jeux 
+(id_jeux, 
+Titre, 
+id_console,
+Edition,
+Version
+Editeur, 
+Developpeur, 
+Pegi, 
+Années_sortie, 
+Prix_Origine, 
+EAN) VALUES
+
+(NULL, 
+'Need For Speed - Heat', 
+2,
+'Standard',
+'Boitier',
+'Electronic Arts', 
+'Electronic Arts', 
+16,
+NULL,
+NULL, 
+NULL);
+
+INSERT INTO `accessoires` (`Titre`, `Nombre`, `Compatibilité`, `id_accessoire`, `id_console`) VALUES ('Dualshock 3', '1', 'Ps3', NULL, '3')
+
+Afficher toutes les console :
+SELECT * FROM console;
+
+Afficher tous les jeux
+SELECT * FROM jeux;
+
+Afficher tous les jeux de la PS2
+SELECT * FROM jeux WHERE id_console IN (SELECT id_console FROM jeux WHERE id_console=4);
+
+Afficher toutes les informations du jeux Alien Isolation :
+SELECT * FROM jeux WHERE titre='Alien Isolation';
